@@ -39,6 +39,7 @@ namespace PopupLib
     }
     public class ModMain : MelonMod
     {
+        public static bool IsKeybindsLoaded => Utils.IsAssemblyLoaded("KeybindManager");
         /// <summary>
         /// Whether the mod has finished the first load.
         /// The game first loads windows on the main UISystem_PC scene.
@@ -90,7 +91,10 @@ namespace PopupLib
                             MessageWindow.wrapper = new MessageBoxKeyWrapper("GeneralMessageBox");
                             PromptWindow.wrapper = new MessageBoxKeyWrapper("PnlSongHideCancelAsk");
                             InputWindow.wrapper = new MessageBoxKeyWrapper("PnlTerminal");
-                            KeybindWindow.wrapper = new MessageBoxKeyWrapper("PnlSongHideCancelAsk");
+                            if (IsKeybindsLoaded)
+                            {
+                                KeybindWindow.wrapper = new MessageBoxKeyWrapper("PnlSongHideCancelAsk");
+                            }
                             //ForumWindow.wrapper = new ManagedMessageBoxWrapper(CreateLegacyBulletin);
                             ForumWindow.wrapper = new MessageBoxKeyWrapper("PnlBulletinNew");
                             ForumWindow.wrapper.MessageBox.Cast<PnlStageBulletinController>().RefreshBulletinInfo();

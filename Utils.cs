@@ -11,6 +11,10 @@ namespace PopupLib
 {
     public static class Utils
     {
+        public static bool IsAssemblyLoaded(string shortName)
+        {
+            return AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.GetName().Name == shortName) != null;
+        }
         public static T WaitTask<T>(Task<T> task)
         {
             task.Wait();

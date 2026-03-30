@@ -48,7 +48,7 @@ namespace PopupLib.UI.Windows
         private KeybindListener? _listener;
 
         public static bool IsKeybindManagerLoaded { get; private set; }
-        public override bool IsLoaded => IsKeybindManagerLoaded && PopupUtils.CurrentScene == SceneDefinitions.MainMenu || PopupUtils.CurrentScene == SceneDefinitions.InGame;
+        public override bool IsLoaded => PopupUtils.CurrentScene == SceneDefinitions.MainMenu || PopupUtils.CurrentScene == SceneDefinitions.InGame;
         protected override bool IsShowReadyPrivate => IsLoaded;
         public class Output
         {
