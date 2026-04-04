@@ -11,7 +11,7 @@ namespace PopupLib.Properties
 
         public const string Author = "PBalint817";
 
-        public const string Version = "2.1.1";
+        public const string Version = "2.1.2";
 
         public const string DownloadLink = "";
 
