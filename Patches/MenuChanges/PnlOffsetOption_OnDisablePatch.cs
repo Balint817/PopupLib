@@ -13,9 +13,9 @@ namespace PopupLib.Patches.MenuChanges
     //    }
     //}
     [HarmonyPatch(typeof(PnlOffsetOption), nameof(PnlOffsetOption.OnDisable))]
-    class PnlOffsetOption_OnDisablePatch
+    internal class PnlOffsetOption_OnDisablePatch
     {
-        static void Prefix()
+        private static void Prefix()
         {
             PopupUtils.ActiveMenu = MenuType.Settings;
         }

@@ -5,9 +5,9 @@ using PopupLib.UI;
 namespace PopupLib.Patches.MenuChanges
 {
     [HarmonyPatch(typeof(MenuSelect), nameof(MenuSelect.SetOn))]
-    class MenuSelect_SetOnPatch
+    internal class MenuSelect_SetOnPatch
     {
-        static void Prefix(Il2CppAssets.Scripts.UI.MenuType type)
+        private static void Prefix(Il2CppAssets.Scripts.UI.MenuType type)
         {
             PopupUtils.IsSearchOpen = false;
             switch (type)

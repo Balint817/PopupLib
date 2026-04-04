@@ -1,12 +1,9 @@
-﻿using UnityEngine;
-using LocalizeLib;
-using Il2CppAssets.Scripts.GameCore.Managers;
-using System.Collections.Generic;
-using System;
-using Bulletin = Il2CppAssets.Scripts.GameCore.Managers.BulletinManager.Bulletin;
-using BulletinDataModel = Il2CppAssets.Scripts.UI.Panels.Bulletin.PnlStageBulletinDataModel;
-using BulletinController = Il2CppAssets.Scripts.UI.Panels.Bulletin.PnlStageBulletinController;
+﻿using LocalizeLib;
 using PopupLib.Patches.RefreshBulletinFix;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using BulletinDataModel = Il2CppAssets.Scripts.UI.Panels.Bulletin.PnlStageBulletinDataModel;
 
 namespace PopupLib.UI.Components
 {
@@ -29,8 +26,8 @@ namespace PopupLib.UI.Components
             result.Texture = texture;
             return result;
         }
-        LocalString _title = null!;
-        LocalString _contents = null!;
+        private LocalString _title = null!;
+        private LocalString _contents = null!;
         public LocalString Titles
         {
             get
@@ -57,7 +54,7 @@ namespace PopupLib.UI.Components
         public bool IsNew;
         public Texture2D? Texture;
         public string? TextureURL;
-        public ForumObject(LocalString titles, LocalString contents, bool isNew=false)
+        public ForumObject(LocalString titles, LocalString contents, bool isNew = false)
         {
             Titles = titles;
             Contents = contents;
@@ -80,11 +77,12 @@ namespace PopupLib.UI.Components
                     content = (item[2] ?? ""),
                     isNew = IsNew,
                     //texture = Texture ?? ModMain.NullTexture,
-                    imageUrl = TextureURL ?? (BulletinLoadTexturePatch.PopupLibURLPrefix+idx),
+                    imageUrl = TextureURL ?? (BulletinLoadTexturePatch.PopupLibURLPrefix + idx),
                     uid = idx.ToString(),
                     force = true
                 });
-            };
+            }
+            ;
         }
     }
 }

@@ -1,7 +1,5 @@
-﻿using Il2CppAssets.Scripts.GameCore.Managers;
-using Il2CppAssets.Scripts.UI.Panels;
-using Il2CppInterop.Common.Attributes;
-using PopupLib.Patches.RefreshBulletinFix;
+﻿using Il2Cpp;
+using Il2CppAssets.Scripts.PeroTools.Commons;
 using PopupLib.Records;
 using PopupLib.UI.Components;
 using PopupLib.UI.Windows.Abstract;
@@ -10,18 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Bulletin = Il2CppAssets.Scripts.GameCore.Managers.BulletinManager.Bulletin;
-using BulletinDataModel = Il2CppAssets.Scripts.UI.Panels.Bulletin.PnlStageBulletinDataModel;
-using BulletinController = Il2CppAssets.Scripts.UI.Panels.Bulletin.PnlStageBulletinController;
 using static PopupLib.UI.Windows.Interfaces.IListWindow;
-using Il2CppAssets.Scripts.UI.Panels.Bulletin;
-using BulletinList = Il2CppSystem.Collections.Generic.List<Il2CppAssets.Scripts.UI.Panels.Bulletin.PnlStageBulletinDataModel>;
+using BulletinController = Il2CppAssets.Scripts.UI.Panels.Bulletin.PnlStageBulletinController;
 using BulletinDict = Il2CppSystem.Collections.Generic.Dictionary<string, Il2CppSystem.Collections.Generic.List<Il2CppAssets.Scripts.UI.Panels.Bulletin.PnlStageBulletinDataModel>>;
-using Il2Cpp;
-using UnityEngine.Events;
-using static Il2CppAssets.Scripts.GameCore.Managers.BulletinManager;
-using Il2CppAssets.Scripts.PeroTools.Commons;
-using MelonLoader;
+using BulletinList = Il2CppSystem.Collections.Generic.List<Il2CppAssets.Scripts.UI.Panels.Bulletin.PnlStageBulletinDataModel>;
 
 namespace PopupLib.UI.Windows
 {
@@ -98,7 +88,7 @@ namespace PopupLib.UI.Windows
                 textContent.horizontalOverflow = wrapMode;
             }
         }
-        HorizontalWrapMode? originalWrapMode;
+        private HorizontalWrapMode? originalWrapMode;
         protected override void HandleManagedShow()
         {
             var bulletin = MessageBox.Cast<BulletinController>();
@@ -131,11 +121,11 @@ namespace PopupLib.UI.Windows
 #pragma warning disable CS8618
         public ForumWindow(params ForumObject[] forumObjects)
         {
-            this.ForumObjects = forumObjects.ToList();
+            ForumObjects = forumObjects.ToList();
         }
         public ForumWindow(IEnumerable<ForumObject> forumObjects)
         {
-            this.ForumObjects = forumObjects.ToList();
+            ForumObjects = forumObjects.ToList();
         }
 #pragma warning restore CS8618
     }

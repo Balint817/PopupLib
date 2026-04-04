@@ -6,9 +6,9 @@ using System;
 namespace PopupLib.Patches.MenuChanges
 {
     [HarmonyPatch(typeof(MenuSelect), nameof(MenuSelect.OnToggleChanged), new Type[] { typeof(int), typeof(int), typeof(bool) })]
-    class MenuSelect_OnToggleChangedPatch
+    internal class MenuSelect_OnToggleChangedPatch
     {
-        static void Prefix(int listIndex, int index, bool isOn)
+        private static void Prefix(int listIndex, int index, bool isOn)
         {
             if (!isOn)
             {

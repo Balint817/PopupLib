@@ -1,21 +1,18 @@
 ﻿using Il2CppAssets.Scripts.UI.Tips;
 using System;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
-using UnityEngine;
 
 namespace PopupLib.Records
 {
     public abstract class BaseMessageBoxWrapper
     {
-        readonly Il2CppSystem.Action onCancelClicked_original;
-        readonly Il2CppSystem.Action onHelpClicked_original;
-        readonly Il2CppSystem.Action onClose_original;
-        readonly Il2CppSystem.Action onNoClicked_original;
-        readonly Il2CppSystem.Action onShow_original;
-        readonly Il2CppSystem.Action onShutClicked_original;
-        readonly Il2CppSystem.Action onYesClicked_original;
+        private readonly Il2CppSystem.Action onCancelClicked_original;
+        private readonly Il2CppSystem.Action onHelpClicked_original;
+        private readonly Il2CppSystem.Action onClose_original;
+        private readonly Il2CppSystem.Action onNoClicked_original;
+        private readonly Il2CppSystem.Action onShow_original;
+        private readonly Il2CppSystem.Action onShutClicked_original;
+        private readonly Il2CppSystem.Action onYesClicked_original;
 
 
         public Action OnCancelClicked
@@ -114,14 +111,14 @@ namespace PopupLib.Records
             MessageBox.onYesClicked = onYesClicked_original;
         }
     }
-    public class MessageBoxKeyWrapper: BaseMessageBoxWrapper
+    public class MessageBoxKeyWrapper : BaseMessageBoxWrapper
     {
         private string _msgBoxName;
         public override AbstractMessageBox MessageBox => GetMessageBox(_msgBoxName);
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static AbstractMessageBox GetMessageBox(string msgBoxName) => PnlTipsManager.instance.GetMessageBox(msgBoxName);
 #pragma warning disable CS8618
-        public MessageBoxKeyWrapper(string messageBoxName): base(messageBoxName)
+        public MessageBoxKeyWrapper(string messageBoxName) : base(messageBoxName)
         {
         }
 #pragma warning restore CS8618
@@ -135,7 +132,7 @@ namespace PopupLib.Records
     {
         public delegate AbstractMessageBox MessageBoxInit();
 
-        AbstractMessageBox _instance;
+        private AbstractMessageBox _instance;
         public override AbstractMessageBox MessageBox => _instance;
 #pragma warning disable CS8618
         public ManagedMessageBoxWrapper(MessageBoxInit initMethod) : base(initMethod)

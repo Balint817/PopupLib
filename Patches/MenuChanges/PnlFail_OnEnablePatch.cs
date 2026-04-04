@@ -5,9 +5,9 @@ using PopupLib.UI;
 namespace PopupLib.Patches.MenuChanges
 {
     [HarmonyPatch(typeof(PnlFail), nameof(PnlFail.OnEnable))]
-    class PnlFail_OnEnablePatch
+    internal class PnlFail_OnEnablePatch
     {
-        static void Prefix()
+        private static void Prefix()
         {
             PopupUtils.ActiveMenu = MenuType.FailScreen;
         }

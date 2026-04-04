@@ -1,8 +1,8 @@
-﻿using MelonLoader;
-using LocalizeLib;
-using Il2CppAssets.Scripts.UI.Controls;
+﻿using Il2CppAssets.Scripts.UI.Controls;
 using Il2CppAssets.Scripts.UI.Panels;
 using Il2CppAssets.Scripts.UI.Tips;
+using LocalizeLib;
+using MelonLoader;
 using System;
 
 namespace PopupLib.UI
@@ -55,7 +55,7 @@ namespace PopupLib.UI
         public static event Action<bool>? PauseActiveChanged;
         internal static void InvokeOnMenuChanged(MenuEventArgs e)
         {
-            MenuChanged?.GenericEventSafeInvokeCheckless(nameof(MenuChanged),e);
+            MenuChanged?.GenericEventSafeInvokeCheckless(nameof(MenuChanged), e);
         }
         internal static void InvokeOnSearchActiveChanged()
         {
@@ -75,7 +75,7 @@ namespace PopupLib.UI
 
     public static class PopupUtils
     {
-        static string? _currentScene;
+        private static string? _currentScene;
         public static string? CurrentScene
         {
             get

@@ -1,20 +1,15 @@
-﻿using MelonLoader;
-using MenuType = PopupLib.UI.MenuType;
+﻿using Il2Cpp;
+using Il2CppAssets.Scripts.UI.Panels;
+using Il2CppAssets.Scripts.UI.Panels.Bulletin;
+using Il2CppAssets.Scripts.UI.Tips;
+using MelonLoader;
+using PopupLib.Records;
 using PopupLib.UI;
 using PopupLib.UI.Windows;
-using PopupLib.Records;
-using System.IO;
 using System;
+using System.IO;
 using UnityEngine;
-using Il2CppAssets.Scripts.UI.Tips;
-using Il2CppInterop.Runtime;
-using Il2CppAssets.Scripts.UI.Panels;
-using Il2CppAssets.Scripts.PeroTools.Commons;
-using Il2Cpp;
-using UnityEngine.UI;
-using Il2CppAssets.Scripts.UI.Panels.Bulletin;
-using Il2CppInterop.Runtime.Injection;
-using Il2CppSirenix.Serialization;
+using MenuType = PopupLib.UI.MenuType;
 
 namespace PopupLib
 {
@@ -25,11 +20,11 @@ namespace PopupLib
 
     //    }
     //}
-    internal class SomeClass: AbstractMessageBox
+    internal class SomeClass : AbstractMessageBox
     {
-        public SomeClass(IntPtr intPtr): base(intPtr)
+        public SomeClass(IntPtr intPtr) : base(intPtr)
         {
-            
+
         }
         public SomeClass()
         {
@@ -168,7 +163,7 @@ namespace PopupLib
             bulletin.txtContent = new();
             bulletin.toggleGroup = new();
             bulletin.m_Tgls = new();
-           
+
             //bulletin.image = ;
 
             var bulletinSelect = gameObject.AddComponent<PnlBulletinSelect>();
@@ -233,7 +228,7 @@ namespace PopupLib
 
         }
 
-        static void Show(GameObject copy)
+        private static void Show(GameObject copy)
         {
             copy.gameObject.SetActive(true);
 

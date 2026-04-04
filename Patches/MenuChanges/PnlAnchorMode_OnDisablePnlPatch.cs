@@ -13,9 +13,9 @@ namespace PopupLib.Patches.MenuChanges
     //    }
     //}
     [HarmonyPatch(typeof(PnlAnchorMode), nameof(PnlAnchorMode.OnDisablePnl))]
-    class PnlAnchorMode_OnDisablePnlPatch
+    internal class PnlAnchorMode_OnDisablePnlPatch
     {
-        static void Prefix()
+        private static void Prefix()
         {
             PopupUtils.ActiveMenu = MenuType.Settings;
         }

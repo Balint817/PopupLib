@@ -1,11 +1,11 @@
 ﻿using MelonLoader;
-using System.Reflection;
 using System;
-using System.IO;
-using UnityEngine;
-using System.Linq;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace PopupLib
 {
@@ -60,7 +60,8 @@ namespace PopupLib
             using (var streamReader = new StreamReader(stream))
             {
                 return await streamReader.ReadToEndAsync();
-            };
+            }
+            ;
         }
         private static async Task<byte[]?> GetByteResourcePrivate(Assembly assembly, string fileName, Exception? innerException)
         {
@@ -101,7 +102,8 @@ namespace PopupLib
                     remaining = 0;
                 }
                 return result;
-            };
+            }
+            ;
         }
         /// <summary>
         /// Load image from file path
@@ -117,7 +119,7 @@ namespace PopupLib
         public static Texture2D LoadImage(byte[] bytes)
         {
             ArgumentNullException.ThrowIfNull(bytes, nameof(bytes));
-            var tex = new Texture2D(1,1);
+            var tex = new Texture2D(1, 1);
             if (ImageConversion.LoadImage(tex, bytes))
             {
                 return tex;
@@ -126,8 +128,8 @@ namespace PopupLib
         }
         public static Texture2D CreateSingleColorPixel(UnityEngine.Color color)
         {
-            var tex = new Texture2D(1,1);
-            tex.SetPixel(0,0,color);
+            var tex = new Texture2D(1, 1);
+            tex.SetPixel(0, 0, color);
             tex.Apply();
             return tex;
         }
@@ -184,7 +186,11 @@ namespace PopupLib
         /// <exception cref="ArgumentException"></exception>
         public static void GenericEventSafeInvoke(this Delegate? Event, string name, params object[] args)
         {
-            if (Event is null) return;
+            if (Event is null)
+            {
+                return;
+            }
+
             var method = Event.GetType().GetMethod("Invoke")!;
             CheckParams(method, args);
             foreach (Delegate function in Event.GetInvocationList())
@@ -204,7 +210,11 @@ namespace PopupLib
         }
         public static void GenericEventSafeInvokeCheckless(this Delegate? Event, string name, params object[] args)
         {
-            if (Event is null) return;
+            if (Event is null)
+            {
+                return;
+            }
+
             var method = Event.GetType().GetMethod("Invoke")!;
             foreach (Delegate function in Event.GetInvocationList())
             {
@@ -217,7 +227,7 @@ namespace PopupLib
                 }
                 catch (Exception ex)
                 {
-                    MelonLogger.Error($"An exception was thrown while invoking '{name}' event:\n"+ex.ToString());
+                    MelonLogger.Error($"An exception was thrown while invoking '{name}' event:\n" + ex.ToString());
                 }
             }
         }

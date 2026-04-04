@@ -6,9 +6,9 @@ using System;
 namespace PopupLib.Patches.MenuChanges
 {
     [HarmonyPatch(typeof(GameMainPnlPause), nameof(GameMainPnlPause.OnYesClicked), new Type[] { })]
-    class GameMainPnlPause_OnYesClickedPatch
+    internal class GameMainPnlPause_OnYesClickedPatch
     {
-        static void Prefix()
+        private static void Prefix()
         {
             PopupUtils.IsGamePaused = false;
         }

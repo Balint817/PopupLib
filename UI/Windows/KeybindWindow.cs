@@ -1,20 +1,20 @@
-﻿using PopupLib.UI.Windows.Abstract;
-using System;
-using PopupLib.UI.Windows.Interfaces;
-using UnityEngine;
-using PopupLib.Records;
-using LocalizeLib;
+﻿using HarmonyLib;
 using KeybindManager;
-using System.Linq;
+using LocalizeLib;
+using MelonLoader;
+using PopupLib.Records;
+using PopupLib.UI.Windows.Abstract;
+using PopupLib.UI.Windows.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using UnityEngine;
 using KeybindUtils = KeybindManager.Utils;
 using LocalizeUtils = LocalizeLib.Utils;
-using HarmonyLib;
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
-using MelonLoader;
 
 
 namespace PopupLib.UI.Windows
@@ -37,7 +37,8 @@ namespace PopupLib.UI.Windows
                 if (!Completed)
                 {
                     throw new InvalidOperationException("attempted to get result before completion");
-                };
+                }
+                ;
                 return _result;
             }
             private set
@@ -70,7 +71,7 @@ namespace PopupLib.UI.Windows
         {
             return new OutputInstance(keys, keysAsString, cancelled);
         }
-        static readonly LocalString UnformattedText = new()
+        private static readonly LocalString UnformattedText = new()
         {
             English = "Press a key to add it:\n{0}\nConfirm to accept this keybind.",
             ChineseSimplified = null!,
@@ -78,7 +79,7 @@ namespace PopupLib.UI.Windows
             Japanese = null!,
             Korean = null!,
         };
-        static readonly LocalString KeybindTitle = new()
+        private static readonly LocalString KeybindTitle = new()
         {
             English = "Keybind",
             ChineseSimplified = null!,
@@ -87,10 +88,10 @@ namespace PopupLib.UI.Windows
             Korean = null!,
         };
 
-        public KeybindWindow(): this(null, null)
+        public KeybindWindow() : this(null, null)
         {
         }
-        public KeybindWindow(LocalString? formattableText): this(formattableText, null)
+        public KeybindWindow(LocalString? formattableText) : this(formattableText, null)
         {
         }
         public KeybindWindow(LocalString? formattableText, LocalString? title)
@@ -165,7 +166,10 @@ namespace PopupLib.UI.Windows
         private void UpdateText()
         {
             if (_keys is null)
+            {
                 return;
+            }
+
             _keysAsString = KeybindUtils.GetKeybindString(false, _keys);
             if (!LocalizeUtils.TryFormatAll(UnformattedText, out Text, _keysAsString))
             {

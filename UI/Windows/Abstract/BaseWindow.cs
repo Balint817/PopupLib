@@ -1,14 +1,5 @@
-﻿using MelonLoader;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Il2CppAssets.Scripts.UI.Tips;
+﻿using Il2CppAssets.Scripts.UI.Tips;
 using PopupLib.Records;
-using System.Reflection;
-using HarmonyLib;
-using Il2CppRewired.UI.ControlMapper;
 
 namespace PopupLib.UI.Windows.Abstract
 {
@@ -167,7 +158,7 @@ namespace PopupLib.UI.Windows.Abstract
         }
         public void ForceClose()
         {
-            Debug.DevMsg($"Force-closing <{this.GetType().FullName}>");
+            Debug.DevMsg($"Force-closing <{GetType().FullName}>");
             if (Completed)
             {
                 return;
@@ -175,16 +166,16 @@ namespace PopupLib.UI.Windows.Abstract
 
             if (Activated)
             {
-                this.OnClose();
+                OnClose();
             }
             else if (IsQueued)
             {
                 Activated = true;
                 OnInternalShow?.GenericEventSafeInvokeCheckless(nameof(OnInternalShow), this);
-                this.OnClose();
+                OnClose();
             }
             WindowManager.Remove(this);
-            this.Completed = true;
+            Completed = true;
             WindowManager.Update();
             if (AutoReset)
             {

@@ -1,17 +1,12 @@
 ﻿using HarmonyLib;
 using Il2Cpp;
-using Il2CppAssets.Scripts.GameCore.Managers;
-using Il2CppAssets.Scripts.UI.Panels;
-using Il2CppAssets.Scripts.UI.Panels.Bulletin;
 using LocalizeLib;
-using PopupLib.Patches.RefreshBulletinFix;
 using PopupLib.UI;
-using PopupLib.UI.Windows;
 
 namespace PopupLib.Patches.MenuChanges
 {
     [HarmonyPatch(typeof(OptionSelect), nameof(OptionSelect.OnClicked))]
-    class OptionSelect_OnClickedPatch
+    internal class OptionSelect_OnClickedPatch
     {
         private enum OptionIndexDefines
         {
@@ -32,7 +27,7 @@ namespace PopupLib.Patches.MenuChanges
             Account = 14,
             PeroShop = 15
         }
-        static bool Prefix(int btnIndex)
+        private static bool Prefix(int btnIndex)
         {
             switch ((OptionIndexDefines)btnIndex)
             {

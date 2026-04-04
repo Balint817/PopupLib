@@ -3,7 +3,7 @@ using System;
 
 namespace PopupLib
 {
-    static class Debug
+    internal static class Debug
     {
         internal static bool IsDebug
         {

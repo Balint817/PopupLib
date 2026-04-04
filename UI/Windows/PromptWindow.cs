@@ -1,14 +1,8 @@
-﻿using Il2CppAssets.Scripts.UI.Tips;
-using LocalizeLib;
-using MelonLoader;
+﻿using LocalizeLib;
 using PopupLib.Records;
 using PopupLib.UI.Windows.Abstract;
 using PopupLib.UI.Windows.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PopupLib.UI.Windows
 {
@@ -36,7 +30,8 @@ namespace PopupLib.UI.Windows
                 if (!Completed)
                 {
                     throw new InvalidOperationException("attempted to get result before completion");
-                };
+                }
+                ;
                 return _result;
             }
             private set

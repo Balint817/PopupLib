@@ -13,9 +13,9 @@ namespace PopupLib.Patches.MenuChanges
     //    }
     //}
     [HarmonyPatch(typeof(VolumeSelect), nameof(VolumeSelect.OnDisablePnl))]
-    class VolumeSelect_OnDisablePnlPatch
+    internal class VolumeSelect_OnDisablePnlPatch
     {
-        static void Prefix()
+        private static void Prefix()
         {
             PopupUtils.ActiveMenu = MenuType.Settings;
         }

@@ -1,8 +1,8 @@
-﻿using System.Reflection;
-using System.Runtime.InteropServices;
+﻿using MelonLoader;
 using PopupLib;
 using PopupLib.Properties;
-using MelonLoader;
+using System.Reflection;
+using System.Runtime.InteropServices;
 
 [assembly: MelonIncompatibleAssemblies(new string[] { })]
 [assembly: MelonOptionalDependencies(new string[] { "KeybindManager" })]

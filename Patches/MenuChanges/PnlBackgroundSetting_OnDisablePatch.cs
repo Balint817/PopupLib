@@ -5,9 +5,9 @@ using PopupLib.UI;
 namespace PopupLib.Patches.MenuChanges
 {
     [HarmonyPatch(typeof(PnlBackgroundSetting), nameof(PnlBackgroundSetting.OnDisable))]
-    class PnlBackgroundSetting_OnDisablePatch
+    internal class PnlBackgroundSetting_OnDisablePatch
     {
-        static void Prefix()
+        private static void Prefix()
         {
             PopupUtils.ActiveMenu = MenuType.Settings_Display;
         }

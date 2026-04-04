@@ -5,9 +5,9 @@ using PopupLib.UI;
 namespace PopupLib.Patches.IsSearchOpenFix
 {
     [HarmonyPatch(typeof(PnlMusicTag), "OnEnablePnl")]
-    class PnlMusicTag_OnEnablePnlPatch
+    internal class PnlMusicTag_OnEnablePnlPatch
     {
-        static void Prefix()
+        private static void Prefix()
         {
             PopupUtils.IsSearchOpen = true;
         }

@@ -1,25 +1,18 @@
-﻿using Il2CppAssets.Scripts.UI.Panels;
+﻿using HarmonyLib;
+using Il2CppAssets.Scripts.UI.Panels.Bulletin;
+using MelonLoader;
+using PopupLib.UI;
+using PopupLib.UI.Windows;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using HarmonyLib;
-using PopupLib.UI.Windows;
-using PopupLib.UI;
-using MelonLoader;
-using Il2CppAssets.Scripts.GameCore.Managers;
-using Il2CppAssets.Scripts.UI.Panels.Bulletin;
-using System.Reflection;
 
 namespace PopupLib.Patches.ForumWindowClickDetection
 {
     [HarmonyPatch(typeof(Toggle), nameof(Toggle.OnPointerClick))]
     internal class Toggle_OnPointerClickPatch
     {
-        static void Postfix(PointerEventData eventData, Toggle __instance)
+        private static void Postfix(PointerEventData eventData, Toggle __instance)
         {
             if (eventData.button != PointerEventData.InputButton.Left)
             {
@@ -65,7 +58,7 @@ namespace PopupLib.Patches.ForumWindowClickDetection
             WindowManager.ForumWindow_OnToggle((int)idx);
         }
 
-        static void Finalizer(Exception __exception)
+        private static void Finalizer(Exception __exception)
         {
             if (__exception != null)
             {

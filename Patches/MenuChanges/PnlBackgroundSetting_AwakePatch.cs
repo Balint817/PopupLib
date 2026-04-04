@@ -5,9 +5,9 @@ using PopupLib.UI;
 namespace PopupLib.Patches.MenuChanges
 {
     [HarmonyPatch(typeof(PnlBackgroundSetting), nameof(PnlBackgroundSetting.Awake))]
-    class PnlBackgroundSetting_AwakePatch
+    internal class PnlBackgroundSetting_AwakePatch
     {
-        static void Prefix()
+        private static void Prefix()
         {
             PopupUtils.ActiveMenu = MenuType.Settings_Display_Brightness;
         }

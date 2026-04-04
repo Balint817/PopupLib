@@ -3,10 +3,7 @@ using PopupLib.UI.Windows;
 using PopupLib.UI.Windows.Abstract;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PopupLib.UI
 {
@@ -18,7 +15,8 @@ namespace PopupLib.UI
             if (_windows.Contains(window))
             {
                 return false;
-            };
+            }
+            ;
             _windows.Add(window);
             return true;
         }
@@ -48,8 +46,8 @@ namespace PopupLib.UI
             return _windows.FirstOrDefault();
         }
 
-        static bool waitingForUnmanagedWindow = false;
-        static bool waitingForShowReady = false;
+        private static bool waitingForUnmanagedWindow = false;
+        private static bool waitingForShowReady = false;
         internal static void Update()
         {
             if (!Any())

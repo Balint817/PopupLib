@@ -27,7 +27,7 @@
 
 //            var methodPointer = *(IntPtr*)(IntPtr)Il2CppInteropUtils
 //                .GetIl2CppMethodInfoPointerFieldForGeneratedMethod(method).GetValue(null)!;
-            
+
 //            // Create a pointer for our new method to be called instead
 //            // This is Cdecl because this is going to be called in an unmanaged context
 //            delegate* unmanaged[Cdecl]<IntPtr, IntPtr, IntPtr, IntPtr> detourPointer = &PatchMethod;

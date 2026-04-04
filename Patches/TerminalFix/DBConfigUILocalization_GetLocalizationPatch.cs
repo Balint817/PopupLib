@@ -1,9 +1,8 @@
 ﻿using HarmonyLib;
 using Il2CppAssets.Scripts.Database;
-using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
-using MelonLoader;
+using System.Reflection;
 
 namespace PopupLib.Patches.TerminalFix
 {
@@ -11,9 +10,9 @@ namespace PopupLib.Patches.TerminalFix
     /// For removing the error message from the terminal
     /// </summary>
     [HarmonyPatch]
-    class DBConfigUILocalization_GetLocalizationPatch
+    internal class DBConfigUILocalization_GetLocalizationPatch
     {
-        static IEnumerable<MethodBase> TargetMethods()
+        private static IEnumerable<MethodBase> TargetMethods()
         {
             return typeof(DBConfigUILocalization)
                 .GetMethods()

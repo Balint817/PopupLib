@@ -1,18 +1,12 @@
-﻿using Il2CppDiscord;
-using Il2CppSystem.Runtime.Remoting.Messaging;
-using LocalizeLib;
+﻿using LocalizeLib;
 using PopupLib.Records;
 using PopupLib.UI.Windows.Abstract;
 using PopupLib.UI.Windows.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PopupLib.UI.Windows
 {
-    public class InputWindow: BaseTitleWindow, IResultWindow<string?>
+    public class InputWindow : BaseTitleWindow, IResultWindow<string?>
     {
         public override bool IsLoaded => PopupUtils.CurrentScene == SceneDefinitions.MainMenu;
         protected override bool IsShowReadyPrivate => IsLoaded;
@@ -41,7 +35,8 @@ namespace PopupLib.UI.Windows
                 if (!Completed)
                 {
                     throw new InvalidOperationException("attempted to get result before completion");
-                };
+                }
+                ;
                 return _result;
             }
             private set
@@ -58,12 +53,12 @@ namespace PopupLib.UI.Windows
         private void OnNoClicked()
         {
             _result = null;
-            this.OnClose();
+            OnClose();
         }
         private void OnYesClicked()
         {
             _result = PopupUtils.GetTerminal().m_InputField.text ?? "";
-            this.OnClose();
+            OnClose();
         }
 
         protected override void InitMessageBox()

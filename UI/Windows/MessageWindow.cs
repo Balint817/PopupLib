@@ -1,12 +1,6 @@
-﻿using Il2CppAssets.Scripts.UI.Tips;
-using LocalizeLib;
+﻿using LocalizeLib;
 using PopupLib.Records;
 using PopupLib.UI.Windows.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PopupLib.UI.Windows
 {

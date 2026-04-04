@@ -5,9 +5,9 @@ using PopupLib.UI;
 namespace PopupLib.Patches.MenuChanges
 {
     [HarmonyPatch(typeof(PnlFeverSetting), nameof(PnlFeverSetting.OnBackClicked))]
-    class PnlFeverSetting_OnBackClickedPatch
+    internal class PnlFeverSetting_OnBackClickedPatch
     {
-        static void Prefix()
+        private static void Prefix()
         {
             PopupUtils.ActiveMenu = MenuType.Settings_Display;
         }

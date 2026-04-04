@@ -1,5 +1,4 @@
-﻿using System;
-using LocalizeLib;
+﻿using LocalizeLib;
 
 namespace PopupLib.UI.Windows.Abstract
 {

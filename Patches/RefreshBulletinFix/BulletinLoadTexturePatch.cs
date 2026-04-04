@@ -1,24 +1,15 @@
 ﻿using HarmonyLib;
-using Il2CppAssets.Scripts.GameCore.Managers;
-using System.Runtime.InteropServices;
-using System;
 using Il2Cpp;
-using UnityEngine;
+using MelonLoader;
 using PopupLib.UI;
 using PopupLib.UI.Windows;
-using MelonLoader;
-using Il2CppAssets.Scripts.PeroTools.Commons;
-using UnityEngine.UI;
-using System.Reflection;
-using System.Linq;
-using System.Collections.Generic;
-using Il2CppAssets.Scripts.UI.Panels.Bulletin;
-using PopupLib.UI.Components;
+using System;
+using UnityEngine;
 
 namespace PopupLib.Patches.RefreshBulletinFix
 {
     [HarmonyPatch(typeof(ImageLoader), nameof(ImageLoader.LoadTexture2DFromLocal))]
-    class BulletinLoadTexturePatch
+    internal class BulletinLoadTexturePatch
     {
         public static readonly string PopupLibURLPrefix = "PopupLib://";
         internal static bool Prefix(ref string url, ref Il2CppSystem.Action<Texture2D> callback, ref bool __result)

@@ -15,9 +15,9 @@ namespace PopupLib.Patches.MenuChanges
 
 
     [HarmonyPatch(typeof(PnlFeverSetting), nameof(PnlFeverSetting.OnEnable))]
-    class PnlFeverSetting_OnEnablePatch
+    internal class PnlFeverSetting_OnEnablePatch
     {
-        static void Prefix()
+        private static void Prefix()
         {
             PopupUtils.ActiveMenu = MenuType.Settings_Display_FeverBG;
         }
